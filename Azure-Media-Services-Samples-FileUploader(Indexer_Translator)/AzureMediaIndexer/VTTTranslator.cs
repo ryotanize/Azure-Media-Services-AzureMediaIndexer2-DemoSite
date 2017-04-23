@@ -23,13 +23,9 @@ namespace AzureMediaIndexer
 
         public void Translate(string SourceFilePath, string outputFilePath)
         {
-            Console.Write($"\rReading Source: {SourceFilePath}...");
 
             // Reads all lines into the array we would be processing/translating
             string[] lines = File.ReadAllLines(SourceFilePath);
-
-            // This array will hold the translated lines to be flushed to the output file
-            char[] computeString = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' };
 
             // Translate the line/dialog and update the translated array
             int arrayFilledCount = 0;
@@ -64,9 +60,6 @@ namespace AzureMediaIndexer
                         }
 
 
-                        // Provide running update of the line being processed
-                        Console.Write($"\rTranslating [{new string(computeString)}] {counter} of {lines.Length}");
-                        computeString[(counter * 20) / lines.Length] = 'o';
                     }
                 }
             }
@@ -100,14 +93,9 @@ namespace AzureMediaIndexer
 
             }
 
-            Console.Write($"\rTranslating [oooooooooooooooooooo] Done.              ");
-
-            Console.Write($"\n\rWriting target: {outputFilePath}...");
-
             // Flush the translated array into the new file
             File.WriteAllLines(outputFilePath, results);
 
-            Console.WriteLine("Done.");
         }
 
     }
