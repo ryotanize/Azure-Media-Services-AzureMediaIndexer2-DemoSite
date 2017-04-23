@@ -1,0 +1,104 @@
+﻿@model SimpleVCMS.Models.VideoLiST
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>VideoLiST</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlayerURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlayerURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CCja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CCja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CCen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CCen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CCfr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CCfr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CCde)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CCde)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CCko)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CCko)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CCzhCHS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CCzhCHS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CCes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CCes)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

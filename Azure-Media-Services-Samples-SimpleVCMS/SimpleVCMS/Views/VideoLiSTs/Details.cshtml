@@ -1,0 +1,84 @@
+﻿@model SimpleVCMS.Models.VideoLiST
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>VideoLiST</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlayerURL)
+        </dt>
+        <dd>
+            <video id="azuremediaplayer" class="azuremediaplayer amp-default-skin amp-big-play-centered" tabindex="0"></video>
+            <script>
+                var myOptions = {
+                    "nativeControlsForTouch": false,
+                    controls: true,
+                    autoplay: true,
+                    width: "640",
+                    height: "400",
+                    language: "ja"
+                }
+                var myPlayer = amp("azuremediaplayer", myOptions);
+                myPlayer.src(
+                    [
+                        { "src": "@Html.DisplayFor(model => model.PlayerURL)","type": "application/vnd.ms-sstr+xml"}
+                    ],
+                    [
+                        { "src": "@Html.DisplayFor(model => model.CCja)", srclang: "jp", kind: "subtitles", label: "日本語" }
+                        ,{ "src": "@Html.DisplayFor(model => model.CCen)", srclang: "en", kind: "subtitles", label: "英語" }
+                        ,{ "src": "@Html.DisplayFor(model => model.CCfr)", srclang: "fr", kind: "subtitles", label: "フランス語" }
+                        ,{ "src": "@Html.DisplayFor(model => model.CCde)", srclang: "fr", kind: "subtitles", label: "ドイツ語" }
+                        ,{ "src": "@Html.DisplayFor(model => model.CCko)", srclang: "ko", kind: "subtitles", label: "ハングル語" }
+                        ,{ "src": "@Html.DisplayFor(model => model.CCzhCHS)", srclang: "zhCHS", kind: "subtitles", label: "中国語" }
+                        ,{ "src": "@Html.DisplayFor(model => model.CCes)", srclang: "es", kind: "subtitles", label: "スペイン語" }
+                    ]
+                );
+
+                var setTrack = function (language, kind) {
+                    for (var i = 0; i < myPlayer.textTracks_.length; i++) {
+                        if (myPlayer.textTracks_.tracks_[i].mode != "disabled") {
+                            myPlayer.textTracks_.tracks_[i].mode = "disabled";
+                        }
+                    }
+                    for (var i = 0; i < myPlayer.textTracks_.length; i++) {
+                        if (myPlayer.textTracks_.tracks_[i].language == language && myPlayer.textTracks_.tracks_[i].kind == kind) {
+                            myPlayer.textTracks_.tracks_[i].mode = "showing";
+                            break;
+                        }
+                    }
+                }
+
+                setTrack('jp', 'subtitles');
+
+            </script>
+
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FileName }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,13 @@
+CREATE TABLE VideoLiST(
+	FileName nvarchar(250) PRIMARY KEY CLUSTERED,
+	Title nvarchar(250),
+	Description nvarchar(250),
+	PlayerURL nvarchar(300),
+	CCja nvarchar(300),
+	CCen nvarchar(300),
+	CCfr nvarchar(300),
+	CCde nvarchar(300),
+	CCko nvarchar(300),
+	CCzhCHS nvarchar(300),
+	CCes nvarchar(300)
+)

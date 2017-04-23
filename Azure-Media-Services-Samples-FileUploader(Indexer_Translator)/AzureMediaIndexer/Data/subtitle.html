@@ -1,0 +1,60 @@
+﻿<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT" />
+	<title>Azure Media Player</title>
+
+	<!--*****START OF Azure Media Player Scripts*****-->
+	<link href="//amp.azure.net/libs/amp/latest/skins/amp-default/azuremediaplayer.min.css" rel="stylesheet">
+	<script src="//amp.azure.net/libs/amp/latest/azuremediaplayer.min.js"></script>
+	<!--*****END OF Azure Media Player Scripts*****-->
+
+</head>
+<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+	<h1>Azure Media Analytics: Indexerによる字幕表示</h1>
+	<video id="azuremediaplayer" class="azuremediaplayer amp-default-skin amp-big-play-centered" tabindex="0"></video>
+
+	<h5>
+		ご利用のデバイスとネットワークの状態次第では、再生できない場合がありますのでご了承ください。
+	</h5>
+
+	<script>
+	var myOptions = {
+		"nativeControlsForTouch": false,
+		controls: true,
+		autoplay: true,
+		width: "640",
+		height: "400",
+		language: "ja"
+	}
+	var myPlayer = amp("azuremediaplayer", myOptions);
+	myPlayer.src([
+	        {
+	                "src": "http://azurehol01.streaming.mediaservices.windows.net/2b454854-a41f-4b53-9a59-89bd6cf6fc1b/AzureAI.ism/manifest",
+			"type": "application/vnd.ms-sstr+xml"
+	        }
+	]
+**************************************
+,
+	[
+           	{
+			"src": "http://azurehol01.streaming.mediaservices.windows.net/07f51395-764f-4748-8370-1f1b33076fce/AzureAI.mp4.vtt", 
+			srclang: "jp", kind: "subtitles", label: "日本語", default: true
+		}
+	],
+	[
+           	{
+			"src": "http://azurehol01.streaming.mediaservices.windows.net/07f51395-764f-4748-8370-1f1b33076fce/AzureAI.mp4.vtt", 
+			srclang: "en", kind: "subtitles", label: "英語", default: true
+		}
+	]
+**************************************
+	);
+
+	</script>
+
+</body>
+</html>
