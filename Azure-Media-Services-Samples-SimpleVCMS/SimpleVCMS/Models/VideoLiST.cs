@@ -19,28 +19,28 @@ namespace SimpleVCMS.Models
         [StringLength(250)]
         public string Description { get; set; }
 
-        [StringLength(300)]
+        [StringLength(500)]
         public string PlayerURL { get; set; }
 
-        [StringLength(300)]
+        [StringLength(500)]
         public string CCja { get; set; }
 
-        [StringLength(300)]
+        [StringLength(500)]
         public string CCen { get; set; }
 
-        [StringLength(300)]
+        [StringLength(500)]
         public string CCfr { get; set; }
 
-        [StringLength(300)]
+        [StringLength(500)]
         public string CCde { get; set; }
 
-        [StringLength(300)]
+        [StringLength(500)]
         public string CCko { get; set; }
 
-        [StringLength(300)]
+        [StringLength(500)]
         public string CCzhCHS { get; set; }
 
-        [StringLength(300)]
+        [StringLength(500)]
         public string CCes { get; set; }
     }
 }
