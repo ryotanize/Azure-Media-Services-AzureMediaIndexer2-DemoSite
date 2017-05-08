@@ -3,7 +3,7 @@ create table VideoList(
 	Title nvarchar(250),
 	Description nvarchar(250),
 	PlayerURL nvarchar(1024),
-	CCjp nvarchar(1024),
+	CCja nvarchar(1024),
 	CCen nvarchar(1024),
 	CCko nvarchar(1024),
 	CCzhCHS nvarchar(1024)
