@@ -2,10 +2,9 @@ create table VideoList(
 	FileName nvarchar(250) PRIMARY KEY CLUSTERED,
 	Title nvarchar(250),
 	Description nvarchar(250),
-	PlayerURL nvarchar(300),
-	CCjp nvarchar(300),
-	CCen nvarchar(300),
-	CCit nvarchar(300),
-	CCit nvarchar(300),
-	CCzh-CHS nvarchar(300)
+	PlayerURL nvarchar(1024),
+	CCjp nvarchar(1024),
+	CCen nvarchar(1024),
+	CCko nvarchar(1024),
+	CCzhCHS nvarchar(1024)
 )
