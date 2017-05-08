@@ -39,7 +39,7 @@ namespace AzureMediaIndexer
                 if (lines[counter].Length > 0)
                 {
                     // Start processing text after the time indicator
-                    if (lines[counter][2] == ':')
+                    if (lines[counter].Length > 3 && lines[counter][2] == ':')
                     {
                         counter++;
                         origins.Add(lines[counter]);
