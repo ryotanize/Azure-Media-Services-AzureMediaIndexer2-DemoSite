@@ -77,7 +77,7 @@ namespace AzureMediaIndexer
             {
                 if (lines[counter].Length > 0)
                 {
-                    if (lines[counter][2] == ':')
+                    if (lines[counter].Length > 3 && lines[counter][2] == ':')
                     {
                         results[counter] = lines[counter];
                         counter++;
