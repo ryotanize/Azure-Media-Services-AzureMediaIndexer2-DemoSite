@@ -207,7 +207,7 @@ namespace AzureMediaIndexer
             {
                 Console.WriteLine($"{item.Key}: {item.Value}");
                 sqlInsertColumnName += $",[CC{item.Key.Replace("-","")}]";
-                sqlInsertValue += $",'{item.Value}'";
+                sqlInsertValue += $",N'{item.Value}'";
 
             }
 
@@ -225,9 +225,9 @@ namespace AzureMediaIndexer
                        [PlayerURL]
                         {sqlInsertColumnName})
                  VALUES
-                       ('{Path.GetFileNameWithoutExtension(uploadFile)}',
-                        '{Path.GetFileNameWithoutExtension(uploadFile)}',
-                        '{PlayerURL}'
+                       (N'{Path.GetFileNameWithoutExtension(uploadFile)}',
+                        N'{Path.GetFileNameWithoutExtension(uploadFile)}',
+                        N'{PlayerURL}'
                         {sqlInsertValue})", 
                        con);
                 result = sql.ExecuteNonQuery();
